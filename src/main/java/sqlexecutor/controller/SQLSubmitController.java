@@ -3,6 +3,7 @@ package sqlexecutor.controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import sqlexecutor.model.TextArea;
 
@@ -38,26 +39,28 @@ public class SQLSubmitController /*extends SimpleFormController*/ {
 	
 	
 	@RequestMapping(value="/submit", method = RequestMethod.POST)
-	String SQLSubmitMethod(@ModelAttribute("TextArea") TextArea textArea, 
+	ModelAndView SQLSubmitMethod(@ModelAttribute("TextArea") TextArea textArea, 
 			BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
-            return "error";
+        	System.out.println(result.toString());
         }
-        model.addAttribute("textArea", textArea.getTextArea());
         
-		System.out.println(textArea);
-		return "result.jsp";		
+        String name = textArea.getTextArea();
+        ModelAndView modelAndView = new ModelAndView("result.jsp");
+        modelAndView.addObject("name_in_welcome_page", name);
+        return modelAndView;
+				
 	}
 	
 	@RequestMapping("/")
-	String Login() {
-		return "submit.jsp";
+	RedirectView Login() {
+		return new RedirectView("view");
 	}
 	
-	@RequestMapping(value = "/view", method = RequestMethod.POST)
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public ModelAndView View(HttpServletRequest request) throws IOException {
 
-	   ModelAndView modelAndView = new ModelAndView("submit");
+	   ModelAndView modelAndView = new ModelAndView("submit.jsp");
 	   TextArea textArea = new TextArea();
 	   modelAndView.addObject("TextArea", textArea);
 	   return modelAndView;

@@ -19,18 +19,20 @@
 </head>
 
 <body>
-	<h2>Spring's form textarea example</h2>
+	<h2>SQL Submitter</h2>
 
-	<form:form method="POST" modelAttribute="TextArea" action="/submit">
+	<form:form modelAttribute="TextArea" action="/submit" method="POST">
 		<!--form:errors path="*" cssClass="errorblock" element="div" /-->
 		<table>
 			<tr>
-				<td>Enter SQL :</td>
+				<td style="border-bottom: thick;" >Enter SQL</td>
+			</tr>
+			<tr>
 				<td><form:textarea path="textArea" rows="5" cols="30" /></td>
 				<!--td><form:errors path="textArea" cssClass="error" /></td-->
 			</tr>
 			<tr>
-				<td colspan="3"><input type="submit" /></td>
+				<td align="right" colspan="3"><input type="submit" /></td>
 			</tr>
 		</table>
 	</form:form>

@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Result</title>
-</head>
-<body>
-Result
-</body>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <title></title>
+   </head>
+   <body>
+     <h1>Welcome</h1>
+     <table>
+       <tr>
+           <td>Name :</td><td>${name_in_welcome_page}</td>
+       </tr>
+     </table>
+   </body>
 </html>
