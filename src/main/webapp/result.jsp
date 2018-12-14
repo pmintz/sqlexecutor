@@ -6,10 +6,10 @@
      <title></title>
    </head>
    <body>
-     <h1>Welcome</h1>
+     <h1>Submission Results</h1>
      <table>
        <tr>
-           <td>Name :</td><td>${name_in_welcome_page}</td>
+           <td>${sql}</td>
        </tr>
      </table>
    </body>

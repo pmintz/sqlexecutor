@@ -49,11 +49,12 @@ public class SQLSubmitController /*extends SimpleFormController*/ {
         	System.out.println(result.toString());
         }
         
-        String name = textArea.getTextArea();
+        String sql = textArea.getTextArea();
         ModelAndView modelAndView = new ModelAndView("result.jsp");
-        modelAndView.addObject("name_in_welcome_page", name);
+        //modelAndView.addObject("sql", sql);
         
         String databaseResult = submitToDatabase(textArea.getTextArea());
+        modelAndView.addObject("sql", databaseResult);
         
         
         return modelAndView;
